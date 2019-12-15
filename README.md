@@ -1,18 +1,18 @@
 # Cloudflare Worker Typescript Starter
 
-Opinionated Template
+Live local development server for cloudflare workers
+Builds typescript.
+Bundles with webpack.
+Starts a local worker on 4321 port.
 
 ### init
 
 1. `npx degit therobotapp/cf-worker.git my-new-worker`
-2. `mkdir src; mv _src_worker.ts src/worker.ts`
+2. `cd my-new-worker`
 3. `npm install`
+4. `npm run dev`
 
 ### Dev
-
-Builds typescript.
-Bundles with webpack.
-Starts a local worker on 4321 port.
 
 - `npm run dev`
 
