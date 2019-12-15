@@ -18,6 +18,10 @@ Starts a local worker on 4321 port.
 
 ### Deploy
 
+change worker name `./wrangler.toml`, add zone or routes
+put your credentials in `./env` or `wrangler.toml`
+
 - `npm run build`
+- `npm run deploy` or `npm run deploy:local`
 - use `wrangle.toml` with `webpack.config.js`.
 - or `./bundle/worker.js` as entry
