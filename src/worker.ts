@@ -1,37 +1,57 @@
-import cookie from 'cookie'
-addEventListener('fetch', async event => {
-  const requestCookies = event.request.headers.get('cookie')
-  const cookies = requestCookies ? cookie.parse(requestCookies) : {}
+import { getCookies, makeCookie, awaiter, Awaiter } from './utils'
+addEventListener('fetch', event => {
+  event.respondWith(handleRequest(event.request, awaiter(event)))
+})
 
-  if (event.request.url.match('/important')) {
-    event.passThroughOnException()
-  }
-  const userData = cookies?.session
-    ? await SESSION_KV.get(cookies?.session, 'json')
-    : null
+async function handleRequest(req: Request, wait: Awaiter) {
+  try {
+    const cookies = getCookies(req)
 
-  if (userData) {
-    const userId = `${(userData as any)?.userId}`
-    event.respondWith(new Response(`Hello ${userId}`))
-  } else {
-    const sessionId = Math.random().toString(36)
-    const userId = Date.now().valueOf()
-    const maxAge = 60 * 60 * 24 * 7 // 1 week
+    const sessionData = cookies.session
+      ? await SESSION_KV.get(`${cookies.session}`, 'json')
+      : null
 
-    event.waitUntil(
-      SESSION_KV.put(sessionId, JSON.stringify({ userId }), {
-        expirationTtl: 300,
-      })
-    )
-    event.respondWith(
-      new Response(`Hello New User`, {
+    if (sessionData) {
+      return new Response(
+        `${JSON.stringify({ cookies, sessionData }, null, 2)}`
+      )
+    } else {
+      const sessionId = (Date.now().valueOf() * Math.random())
+        .toString(36)
+        .replace('.', '')
+
+      const userId = (Math.random() * 1000).toFixed()
+
+      const maxAge = 60 * 60 * 24 * 7 // 1 week
+
+      const cookieData = {
+        name: 'session',
+        value: sessionId,
+        options: {
+          httpOnly: true,
+          maxAge,
+        },
+      }
+
+      const data = { userId, sessionId, cookieData }
+
+      wait(() =>
+        SESSION_KV.put(sessionId, JSON.stringify(data), {
+          expirationTtl: 60,
+        })
+      )
+
+      return new Response(`Hello New`, {
         headers: new Headers({
-          'Set-Cookie': cookie.serialize('session', sessionId, {
-            httpOnly: true,
-            maxAge,
-          }),
+          'Set-Cookie': makeCookie(
+            cookieData.name,
+            cookieData.value,
+            cookieData.options
+          ),
         }),
       })
-    )
+    }
+  } catch (e) {
+    return new Response(e.message, { status: 500 })
   }
-})
+}
