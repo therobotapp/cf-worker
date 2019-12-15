@@ -27,7 +27,8 @@
     "noUnusedLocals": true,
     "forceConsistentCasingInFileNames": true,
     "types": [
-      "@cloudflare/workers-types"
+      "@cloudflare/workers-types",
+      "types-cloudflare-worker",
     ],
     "lib": [
       "es2016",
@@ -36,7 +37,6 @@
     "outDir": "dist"
   },
   "include": [
-    "@cloudflare/workers-types",
     "src/**/*",
     "src/*"
   ],
