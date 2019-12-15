@@ -17,7 +17,7 @@ module.exports = {
   //
   performance: { hints: 'warning' },
   mode: NODE_ENV,
-  devtool: 'source-map',
+  devtool: isProduction ? false : 'source-map',
   entry: './dist/worker.js',
   output: {
     path: path.resolve(__dirname, 'bundle'),
