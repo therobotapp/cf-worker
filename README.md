@@ -4,7 +4,7 @@ Opinionated Template
 
 ### init
 
-1. `npx degit https://gist.github.com/5a48a8afd9377b0dd3523f68af512f98.git my-new-worker`
+1. `npx degit npx degit therobotapp/cf-worker.git my-new-worker my-new-worker`
 2. `mkdir src; mv _src_worker.ts src/worker.ts`
 3. `npm install`
 
