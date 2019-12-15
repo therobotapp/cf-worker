@@ -12,8 +12,10 @@
     "watch:all": "concurrently --handle-input -n typescript,webpack,server npm:build:watch npm:bundle:watch nodemon server:rs",
     "clean": "rimraf dist bundle worker",
     "dev": "export NODE_ENV=development && npm run build && npm run watch:all",
-    "deploy": "wrangler publish",
-    "deploy:local": ". ./env && wrangler publish",
+    "predeploy": "npm run clean && npm run build",
+    "deploy": ". ./env && wrangler publish",
+    "deploy:preview": ". ./env && wrangler preview",
+    "deploy:local": ". ./env.local && wrangler publish",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "nodemonConfig": {
