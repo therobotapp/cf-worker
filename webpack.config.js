@@ -43,11 +43,12 @@ module.exports = {
     // /* // uncomment to disable XD
     ...(isProduction
       ? {
+          minimize: true,
           minimizer: [
             new TerserPlugin({
-              cache: false,
+              cache: true,
               parallel: true,
-              sourceMap: false,
+              sourceMap: true,
               terserOptions: {
                 output: { comments: false },
                 ecma: 8,
