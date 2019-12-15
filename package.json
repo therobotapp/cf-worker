@@ -10,6 +10,7 @@
     "bundle:watch": "webpack --watch --info-verbosity verbose",
     "bundle:serve": "node worker.serve.js",
     "watch:all": "concurrently --handle-input -n typescript,webpack,server npm:build:watch npm:bundle:watch nodemon server:rs",
+    "clean": "rimraf dist bundle worker",
     "dev": "export NODE_ENV=development && npm run build && npm run watch:all",
     "deploy": "wrangler publish",
     "deploy:local": ". ./env && wrangler publish",
