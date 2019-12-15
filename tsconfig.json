@@ -1,0 +1,49 @@
+{
+  "compilerOptions": {
+    "preserveWatchOutput": true,
+    "incremental": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": [
+        "./*"
+      ]
+    },
+    "resolveJsonModule": true,
+    "composite": false,
+    "target": "es2016",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+    "removeComments": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "strictNullChecks": true,
+    "noErrorTruncation": true,
+    "noUnusedLocals": true,
+    "forceConsistentCasingInFileNames": true,
+    "types": [
+      "@cloudflare/workers-types"
+    ],
+    "lib": [
+      "es2016",
+      "WebWorker",
+    ],
+    "outDir": "dist"
+  },
+  "include": [
+    "@cloudflare/workers-types",
+    "src/**/*",
+    "src/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "node_modules/**",
+    "dist/**/*",
+    "dist/*"
+  ]
+}
