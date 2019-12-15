@@ -1,0 +1,7 @@
+name = "typescript"
+type = "webpack"
+workers_dev = true
+webpack_config = "./webpack.config.js"
+kv-namespaces = [ 
+  #, { binding = "LOGS_NAMESPACE", id = "e5d77b1837fa1H362fUbBuAe8e7e6hdcBWU698" }
+]
