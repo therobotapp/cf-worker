@@ -2,7 +2,10 @@ node_modules
 dist/
 bundle/
 
+# api keys
+env
+env.local
+
 # wrangler output
 # is ther a way to change it ?
 worker/
-env.local
