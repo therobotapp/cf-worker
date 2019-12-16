@@ -12,7 +12,7 @@
     }
   },
   "scripts": {
-    "version": "conventional-changelog -u -i CHANGELOG.md  -s && prettier --prose-wrap always --write CHANGELOG.md && git add CHANGELOG.md",
+    "version": "conventional-changelog -p angular -u -i CHANGELOG.md  -s && prettier --prose-wrap always --write CHANGELOG.md && git add CHANGELOG.md",
     "build": "tsc",
     "build:watch": "tsc --watch",
     "bundle": "webpack --info-verbosity verbose --progress",
