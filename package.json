@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "main": "dist/worker.js",
   "description": "",
-  "tag-version-prefix": "",
-  "message": "chore(release): %s :tada:",
+  "npm": {
+    "tag-version-prefix": "",
+    "message": "chore(release): %s :tada:"
+  },
   "keywords": [],
   "author": "Yevhenii Ponomar <gcoding@gmail.com>",
   "license": "ISC",
