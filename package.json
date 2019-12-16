@@ -6,8 +6,13 @@
   "keywords": [],
   "author": "Yevhenii Ponomar <gcoding@gmail.com>",
   "license": "ISC",
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
   "scripts": {
-    "version": "conventional-changelog -p angular -t \"\" -i CHANGELOG.md -s && prettier --prose-wrap always --write CHANGELOG.md && git add CHANGELOG.md",
+    "version": "conventional-changelog -u -i CHANGELOG.md  -s && prettier --prose-wrap always --write CHANGELOG.md && git add CHANGELOG.md",
     "build": "tsc",
     "build:watch": "tsc --watch",
     "bundle": "webpack --info-verbosity verbose --progress",
@@ -38,18 +43,22 @@
   "devDependencies": {
     "@cloudflare/workers-types": "^1.0.6",
     "@cloudflare/wrangler": "^1.6.0",
+    "@commitlint/config-conventional": "^8.2.0",
     "@dollarshaveclub/cloudworker": "^0.1.2",
     "@types/cookie": "^0.3.3",
     "@typescript-eslint/eslint-plugin": "^2.11.0",
     "@typescript-eslint/parser": "^2.11.0",
+    "commitlint": "^8.2.0",
     "concurrently": "^5.0.0",
     "conventional-changelog": "^3.1.18",
+    "conventional-changelog-angular": "^5.0.6",
     "cookie": "^0.4.0",
     "eslint": "6.7.2",
     "eslint-config-prettier": "^6.7.0",
     "eslint-config-typescript": "^3.0.0",
     "eslint-plugin-prettier": "^3.1.1",
     "express": "^4.17.1",
+    "husky": "^3.1.0",
     "nodemon": "^1.19.4",
     "prettier": "^1.19.1",
     "raw-loader": "^3.1.0",
