@@ -16,6 +16,8 @@ Starts a local worker on 4321 port.
 
 - `npm run dev`
 
+- `npm version [major|minor|patch]` will update CHANGELOG.md and add tagged commit
+
 ### Deploy
 
 change worker name `./wrangler.toml`, add zone or routes
