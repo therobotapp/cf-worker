@@ -1,3 +1,5 @@
+## [1.0.3](https://github.com/therobotapp/cf-worker/compare/1.0.2...1.0.3) (2019-12-16)
+
 ## [1.0.2](https://github.com/therobotapp/cf-worker/compare/1.0.1...1.0.2) (2019-12-16)
 
 ### Bug Fixes
