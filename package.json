@@ -1,9 +1,15 @@
 {
   "name": "cf-worker",
   "version": "1.0.0",
-  "description": "",
   "main": "dist/worker.js",
+  "description": "",
+  "tag-version-prefix": "",
+  "message": "chore(release): %s :tada:",
+  "keywords": [],
+  "author": "Yevhenii Ponomar <gcoding@gmail.com>",
+  "license": "ISC",
   "scripts": {
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
     "build": "tsc",
     "build:watch": "tsc --watch",
     "bundle": "webpack --info-verbosity verbose --progress",
@@ -28,9 +34,6 @@
     "runOnChangeOnly": true,
     "quiet": false
   },
-  "keywords": [],
-  "author": "Yevhenii Ponomar <gcoding@gmail.com>",
-  "license": "ISC",
   "dependencies": {
     "optional-js": "^2.1.1"
   },
@@ -42,6 +45,7 @@
     "@typescript-eslint/eslint-plugin": "^2.11.0",
     "@typescript-eslint/parser": "^2.11.0",
     "concurrently": "^5.0.0",
+    "conventional-changelog": "^3.1.18",
     "cookie": "^0.4.0",
     "eslint": "6.7.2",
     "eslint-config-prettier": "^6.7.0",
